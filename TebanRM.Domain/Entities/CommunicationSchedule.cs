@@ -9,4 +9,5 @@ public class CommunicationSchedule : BaseAuditableEntity
     public DateTime StartDate { get; set; }
 
     public string TebanUserId { get; set; } = string.Empty;
+    public int ContactId { get; set; }
 }
