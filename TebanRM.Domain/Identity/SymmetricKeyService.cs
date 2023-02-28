@@ -1,23 +1,20 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using TebanRM.Application.Options;
 
 namespace TebanRM.Application.Identity;
 public class SymmetricKeyService
 {
-    private readonly IConfiguration _config;
+    private readonly string _key;
 
-    public SymmetricKeyService(IConfiguration config)
+    public SymmetricKeyService(IOptions<SymmetricKeyOptions> options)
     {
-        _config = config;
+        _key = options.Value.SymmetricKey;
     }
 
     public SymmetricSecurityKey GetSymmetricKey()
     {
-        var symmetricKey = _config["Teban:SymmetricKey"];
-
-        return symmetricKey == null
-            ? throw new NullReferenceException("Symmetric Key configuration value is missing.")
-            : new SymmetricSecurityKey(Encoding.UTF8.GetBytes(symmetricKey));
+        return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_key));
     }
 }
