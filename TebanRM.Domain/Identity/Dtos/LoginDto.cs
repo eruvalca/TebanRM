@@ -1,4 +1,4 @@
-﻿namespace TebanRM.Domain.Identity.Dtos;
+﻿namespace TebanRM.Application.Identity.Dtos;
 public class LoginDto
 {
     public string Email { get; set; } = string.Empty;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace TebanRM.Domain.Entities;
+namespace TebanRM.Application.Entities;
 public class TebanUser : IdentityUser
 {
     public string FirstName { get; set; } = string.Empty;

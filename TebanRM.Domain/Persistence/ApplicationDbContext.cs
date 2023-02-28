@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TebanRM.Domain.Entities;
+using TebanRM.Application.Entities;
 using TebanRM.Domain.Persistence.Configuration;
 
-namespace TebanRM.Domain.Persistence;
+namespace TebanRM.Application.Persistence;
 public class ApplicationDbContext : IdentityDbContext<TebanUser>
 {
     public ApplicationDbContext(DbContextOptions options) : base(options)

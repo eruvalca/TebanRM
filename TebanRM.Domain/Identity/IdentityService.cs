@@ -4,10 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using TebanRM.Domain.Entities;
-using TebanRM.Domain.Identity.Dtos;
+using TebanRM.Application.Entities;
+using TebanRM.Application.Identity.Dtos;
 
-namespace TebanRM.Domain.Identity;
+namespace TebanRM.Application.Identity;
 public class IdentityService
 {
     private readonly IConfiguration _config;

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TebanRM.Api", "TebanRM.Api\TebanRM.Api.csproj", "{8E1DFA90-40F0-4160-A698-A9E5684C2D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TebanRM.Domain", "TebanRM.Domain\TebanRM.Domain.csproj", "{6A265175-AAB8-4FE3-B022-B6989015827C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TebanRM.Application", "TebanRM.Domain\TebanRM.Application.csproj", "{6A265175-AAB8-4FE3-B022-B6989015827C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

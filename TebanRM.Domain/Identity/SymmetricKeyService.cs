@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace TebanRM.Domain.Identity;
+namespace TebanRM.Application.Identity;
 public class SymmetricKeyService
 {
     private readonly IConfiguration _config;

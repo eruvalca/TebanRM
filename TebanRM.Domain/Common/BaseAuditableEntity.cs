@@ -1,4 +1,4 @@
-﻿namespace TebanRM.Domain.Common;
+﻿namespace TebanRM.Application.Common;
 public abstract class BaseAuditableEntity
 {
     public DateTime Created { get; set; }

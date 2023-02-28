@@ -1,4 +1,4 @@
-﻿namespace TebanRM.Domain.Enums;
+﻿namespace TebanRM.Application.Enums;
 public enum Frequency
 {
     Daily,
