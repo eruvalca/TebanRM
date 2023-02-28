@@ -1,18 +1,4 @@
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-
 var builder = WebApplication.CreateBuilder(args);
-
-var allowedSpecificOrigins = "allowedSpecificOrigins";
-var azureAppConfigConnectionString = builder.Configuration["AppConfigConnectionString"];
-
-builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddAzureAppConfiguration(options =>
-    {
-        options.Connect(azureAppConfigConnectionString)
-        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName);
-    });
-});
 
 // Add services to the container.
 

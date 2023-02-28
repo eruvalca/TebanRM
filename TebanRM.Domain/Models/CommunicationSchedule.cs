@@ -1,7 +1,7 @@
 ﻿using TebanRM.Application.Common;
 using TebanRM.Application.Enums;
 
-namespace TebanRM.Application.Entities;
+namespace TebanRM.Application.Models;
 public class CommunicationSchedule : BaseAuditableEntity
 {
     public int CommunicationScheduleId { get; set; }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TebanRM.Application.Entities;
-using TebanRM.Domain.Persistence.Configuration;
+using TebanRM.Application.Models;
+using TebanRM.Application.Persistence.Configuration;
 
 namespace TebanRM.Application.Persistence;
 public class ApplicationDbContext : IdentityDbContext<TebanUser>

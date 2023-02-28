@@ -1,6 +1,6 @@
 ﻿using TebanRM.Application.Common;
 
-namespace TebanRM.Application.Entities;
+namespace TebanRM.Application.Models;
 public class Contact : BaseAuditableEntity
 {
     public int ContactId { get; set; }

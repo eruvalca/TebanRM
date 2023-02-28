@@ -4,8 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using TebanRM.Application.Entities;
-using TebanRM.Application.Identity.Dtos;
+using TebanRM.Application.Models;
 
 namespace TebanRM.Application.Identity;
 public class IdentityService
@@ -23,17 +22,18 @@ public class IdentityService
         _symmetricKeyService = symmetricKeyService;
     }
 
-    public async Task<(bool, string)> RegisterUserAsync(RegisterDto registerDto)
+    public async Task<(bool, string)> RegisterUserAsync(string email, string userName,
+        string firstName, string lastName, string password)
     {
         var user = new TebanUser
         {
-            Email = registerDto.Email,
-            UserName = registerDto.Email,
-            FirstName = registerDto.FirstName,
-            LastName = registerDto.LastName
+            Email = email,
+            UserName = email,
+            FirstName = firstName,
+            LastName = lastName
         };
 
-        var result = await _userManager.CreateAsync(user, registerDto.Password);
+        var result = await _userManager.CreateAsync(user, password);
 
         if (result.Succeeded)
         {
@@ -49,16 +49,16 @@ public class IdentityService
         return (false, "Something went wrong during registration.");
     }
 
-    public async Task<(bool, string)> LoginUserAsync(LoginDto loginDto)
+    public async Task<(bool, string)> LoginUserAsync(string email, string password)
     {
-        var user = await _userManager.FindByEmailAsync(loginDto.Email);
+        var user = await _userManager.FindByEmailAsync(email);
 
         if (user is null)
         {
             return (false, "User does not exist.");
         }
 
-        var isPasswordValid = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+        var isPasswordValid = await _userManager.CheckPasswordAsync(user, password);
 
         if (!isPasswordValid)
         {
@@ -67,7 +67,7 @@ public class IdentityService
 
         var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, loginDto.Email),
+                new Claim(ClaimTypes.Email, email),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, user.UserName is null ? string.Empty : user.UserName),
                 new Claim(ClaimTypes.GivenName, user.FirstName),
