@@ -22,7 +22,7 @@ public class IdentityService
         _symmetricKeyService = symmetricKeyService;
     }
 
-    public async Task<(bool, string)> RegisterUserAsync(string email, string userName,
+    public async Task<(bool, string)> RegisterUserAsync(string email,
         string firstName, string lastName, string password)
     {
         var user = new TebanUser
