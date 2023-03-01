@@ -22,15 +22,14 @@ public class IdentityService
         _symmetricKeyService = symmetricKeyService;
     }
 
-    public async Task<(bool, string)> RegisterUserAsync(string email,
-        string firstName, string lastName, string password)
+    public async Task<(bool, string)> RegisterUserAsync(TebanUser newUser, string password)
     {
         var user = new TebanUser
         {
-            Email = email,
-            UserName = email,
-            FirstName = firstName,
-            LastName = lastName
+            Email = newUser.Email,
+            UserName = newUser.Email,
+            FirstName = newUser.FirstName,
+            LastName = newUser.LastName
         };
 
         var result = await _userManager.CreateAsync(user, password);

@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TebamRM.Contracts\TebamRM.Contracts.csproj" />
     <ProjectReference Include="..\TebanRM.Application\TebanRM.Application.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TebamRM.Contracts.Requests;
 using TebanRM.Application.Identity;
+using TebanRM.Application.Models;
 
 namespace TebanRM.Api.Controllers
 {
@@ -16,9 +18,17 @@ namespace TebanRM.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterAsync(string firstName, string lastName, string email, string password)
+        public async Task<IActionResult> RegisterAsync(RegisterRequest request)
         {
-            var registerResult = await _identityService.RegisterUserAsync(firstName, lastName, email, password);
+            var tebanUser = new TebanUser
+            {
+                Email = request.Email,
+                UserName = request.Email,
+                FirstName = request.FirstName,
+                LastName = request.LastName
+            };
+
+            var registerResult = await _identityService.RegisterUserAsync(tebanUser, request.Password);
             if(registerResult.Item1 == true)
             {
                 return Ok(registerResult.Item2);
