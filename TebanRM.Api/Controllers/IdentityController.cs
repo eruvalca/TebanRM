@@ -16,10 +16,17 @@ namespace TebanRM.Api.Controllers
         }
 
         [HttpPost]
-        public Task<IActionResult> RegisterAsync(string firstName, string lastName, string email, string password)
+        public async Task<IActionResult> RegisterAsync(string firstName, string lastName, string email, string password)
         {
-            var registerResult = _identityService.RegisterUserAsync(firstName, lastName, email, password);
-
+            var registerResult = await _identityService.RegisterUserAsync(firstName, lastName, email, password);
+            if(registerResult.Item1 == true)
+            {
+                return Ok(registerResult.Item2);
+            }
+            else
+            {
+                return BadRequest(registerResult.Item2);
+            }
         }
     }
 }
