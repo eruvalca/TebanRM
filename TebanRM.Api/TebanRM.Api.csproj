@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a449d1c3-d169-4d99-b9c1-9b74178fd33b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TebanRM.Application\TebanRM.Application.csproj" />
   </ItemGroup>
 
 </Project>
